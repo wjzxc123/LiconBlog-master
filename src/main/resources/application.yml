@@ -1,0 +1,42 @@
+#server
+server:
+  port: 8080
+  servlet:
+    # 项目contextPath，一般在正式发布版本中，我们不配置
+    context-path: /LiconBlog
+    # session最大超时时间(分钟)，默认为30
+    session:
+      timeout: 60m
+#Spring
+spring:
+  profiles:
+    active: jdbc
+  mvc:
+    view:
+      prefix: classpath:/templates/
+      suffix: .html
+    date-format : yyyy-MM-dd HH:mm:ss
+  thymeleaf:
+    mode: HTML5
+    cache: false
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
+    check-template-location: true
+    servlet:
+      content-type: text/html; charset=utf-8
+      
+#Mybatis
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.Licon.blog.website.dao
+
+
+#pagehelper
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count,countSql
+
+
